@@ -1,19 +1,13 @@
 pipeline {
     agent any
-    parameters{
-      string  {
-          name: 'TAG'
-          defaultvalue:'@smoke'
-          description:'select the cucumber value to excute'   
-        }    
-    }
 
-    parameters{
-      string  {
-          name: 'TAG'
-          defaultvalue:'@smoke'
-          description:'select the cucumber value to excute'   
-        }   
+    parameters {
+        string(
+            name: 'TAG',
+            defaultValue: '@smoke',
+            description: 'select the cucumber value to execute'
+        )
+    }
 
     tools {
         nodejs 'Node18'
@@ -35,6 +29,7 @@ pipeline {
 
         stage('Run Cucumber Tests') {
             steps {
+               
                 sh 'npm test'
             }
         }
