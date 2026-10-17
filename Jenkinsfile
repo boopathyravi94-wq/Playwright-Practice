@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    parameters{
+      string  {
+          name: 'TAG'
+          defaultvalue:'@smoke'
+          description:'select the cucumber value to excute'   
+        }    
+    }
 
     tools {
         nodejs 'NodeJS'
